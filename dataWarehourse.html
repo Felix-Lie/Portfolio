@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="text.css">
+<link rel="stylesheet" href="topnav.css">
+<link rel="stylesheet" href="tables.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div class="navbar">
+  <a class = home href="home.html"> <i class="fa fa-fw fa-home"></i> Home</a>
+
+  <a href="about.html">  <i class="fa fa-fw fa-user"></i> </i>About</a>
+  
+  <div class="dropdown">
+    <button class="dropbtn">  <i class="fa fa-fw fa-file"> </i> Data Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+      <div class="dropdown-content">
+        <a href="airbnb.html">Airbnb Listings Dashboard</a>
+        <a href="dataWarehourse.html">Data Warehousing</a>
+        <a href="mcDonalds.html">F&B Regression Analysis</a>
+        <a href="robocall.html"> FCC Robocalls Complaints</a>
+        <a href="startUp.html">Start Up Venture Funding</a>
+      </div>
+  </div> 
+
+  <div class="dropdown">
+    <button class="dropbtn">  <i class="fa fa-fw fa-gear"> </i> WebDev Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+      <div class="dropdown-content">
+        <a href="ff.html">Filter Fun</a>
+      </div>
+  </div>   
+  <div class = "navbar-right">
+    <a href="contact.html"> <i class="fa fa-fw fa-envelope"></i> Contact</a>
+  </div>
+</div>
+
+  <body>
+    <div class="a">
+      <h2>Project 2 : Data Warehousing </h2>
+    </div> 
+
+    <div class= "space"> </div>
+      <h4 class = "heading"> Introduction </h4>
+    <div width = 800px;>
+      <p> 
+        This project was aimed to design a relational database for a shipping firm based on a shipment invoice. Dimensional modelling 
+        method was used to create a star schema. Fig 2.1 below shows the start schema of the shipping company (FK
+        means foreign key).
+      </p>
+      <p>
+        <strong> Software used: Draw.io , SQL Developer</strong>
+      </p>
+      
+
+      <figure class = "imgborder">
+        <figcaption> Fig 2.1 - Star Schema </figcaption>
+        <br>
+        <img src="images/PD2_2.1starschema.png" width="1200" height="800" class="center">
+      </figure>
+    </div>
+
+    <div class= "space"> </div>
+    <h4 class = "heading"> Explanation </h4>
+    <div width = 800px;>
+      <p>
+        The business process behind designing this dimensional model is to acknowledge the most granular business questions on the 
+        shipment invoice subject to shipment, customer, product, warehouse, deals, payment method, etc. The shipment company serves 
+        limited number of customers while all customers are registered to the company and may ship any items to any customer.
+      </p>
+      <p>
+        A few key aspects when designing this database are: <br>
+        <ol>
+          <li> Fact table has been normalized to ensure single generic fact along with the dimension that identifies the type of fact. </li>
+          <li> Attributes like shipment mode, product, deal, contract and warehouse are treated in a separate dinension. </li>
+          <li> Total billed amount is computable from tax, total billed amount and charges. </li>
+          <li> Facts are available at the most ganular level. </li>
+          <li> Snowflaking customer dimension into an outrigger has been done for cluster of low cardinalities to browse and track changes. </li>
+        </ol>
+      </p>
+      <p>
+        This database is thus designed to be queried using SQL, or data access tools. While making this database, I crucially thought 
+        that the database should adapt to businesses' dynamics changes, limitations, query processing speed and accuracy.
+      </p>
+    </div>
+    
+    
+    
+    
+    
+    </body

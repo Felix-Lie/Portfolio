@@ -1,0 +1,32 @@
+canvas{
+    width: 400px;
+    height: 200px;
+    border: 1px solid darkgray;
+  }
+  
+  body{
+    background-color: black;
+    margin: 40px;
+  }
+  
+  input{
+    font-family: Times;
+    font-size: 20px;   
+  }
+  
+  h1{
+    font-family: Times;
+    font-size: 40px;
+    color: white;  
+  }
+  
+  h2{
+    font-family: Times;
+    color: white;  
+  }
+  
+  h5{
+    font-family: Times;
+    font-weight: normal;
+    color: white;  
+  }

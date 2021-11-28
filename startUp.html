@@ -1,0 +1,359 @@
+<link rel="stylesheet" href="text.css">
+<link rel="stylesheet" href="topnav.css">
+<link rel="stylesheet" href="tables.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div class="navbar">
+  <a class = home href="home.html"> <i class="fa fa-fw fa-home"></i> Home</a>
+
+  <a href="about.html">  <i class="fa fa-fw fa-user"></i> </i>About</a>
+  
+  <div class="dropdown">
+    <button class="dropbtn">  <i class="fa fa-fw fa-file"> </i> Data Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+      <div class="dropdown-content">
+        <a href="airbnb.html">Airbnb Listings Dashboard</a>
+        <a href="dataWarehourse.html">Data Warehousing</a>
+        <a href="mcDonalds.html">F&B Regression Analysis</a>
+        <a href="robocall.html"> FCC Robocalls Complaints</a>
+        <a href="startUp.html">Start Up Venture Funding</a>
+      </div>
+  </div> 
+
+  <div class="dropdown">
+    <button class="dropbtn">  <i class="fa fa-fw fa-gear"> </i> WebDev Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+      <div class="dropdown-content">
+        <a href="ff.html">Filter Fun</a>
+      </div>
+  </div>   
+  <div class = "navbar-right">
+    <a href="contact.html"> <i class="fa fa-fw fa-envelope"></i> Contact</a>
+  </div>
+</div>
+
+<body>
+  <div class="a">
+    <h2>Project 5 : Start Up Venture Funding</h2>
+  </div>
+
+  <div class= "space"> </div>
+  <div width = "800px";>
+    <h4 class = "heading"> Introduction </h4>
+    <p>
+      Every year, many businesses closed due to different reasons, and many more individuals opened up new businesses. The fight for success
+      to have a strong company becomes more difficult over time. No matter how success your company are, at some point you will need
+      funding to scale up your start up business.  
+    </p>  
+
+    <p>
+      <strong> Personal Role: </strong>
+      As this is a gorup project, my role in this project is to analyze using data visualization when and is the best time to request funds and where.
+    </p>
+
+    <p>
+      <b>Software used: R studio</b>
+    </p>
+    </div> 
+
+    <div>
+      <div class= "space"> </div>
+      <h4 class = "heading"> Objective </h4>
+      <p>
+        The aim of this project is to analyze and predict the best available options for start up business owners to look for funding at the right 
+        time and the right place. This project will help by telling which month, region and markets, and when they have the highest chance of 
+        attracting investors. This project will consist of project goal, datadet description and preprocessing, data visualization, data modelling
+        and summary.
+      </p>
+    </div>
+
+    <div>
+      <div class= "space"> </div>
+      <h4 class = "heading"> The Dataset and Preprocessing</h4>
+      <p>
+        The dataset consist of 2 tables, one is the start up companies data file who receive the investment (companies datafile), and other data file is the 
+        company that did the investment (investment datafile). The companies datafile consist of data such as status of the company, company's birth, funding status,
+        the last time it was funded, how many times it was funded, funding rounds, market segment, location, when it was funded, etc.
+        Similar to the companies data file, the investment data file contains information such as when and how much did the company do fundings, 
+        their market segments, how long has the company stand, location, how many times do they perform funding, what market segments they often
+        invest, etc.
+      </p>
+      <p>
+        To preprocess the data before analyzing it in RStudio, unwanted tables, duplicate rows and columns, signs like "+" and 145 outlier 
+        records had been removed to avoid inaccuracy. Missing values with "na" or "0" had been properly replaced. The date colums had been 
+        split into years and months. As this is real time data, outliers does exist and it is detected using boxplot.
+      </p>
+
+
+
+      <div class="row">
+        <div class="column2">
+          <figcaption> <b>Fig 5.1: Outliers in Investment Table, Funded year </b></figcaption>
+          <img src="images/PD5_Outlier1.png" width = "600px"; height = "400px";>
+        </div>
+        <div class="column2">
+          <figcaption> <b>Fig 5.2: Outliers in Investment Table, Amount Funded </b></figcaption>
+          <img src="images/PD5_Outlier2.png" width = "600px"; height = "400px";>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="column2">
+          <figcaption> <b>Fig 5.3: Outliers in Companies Table, Initial Funding Year </b></figcaption>
+          <img src="images/PD5_Outlier3.png" width = "600px"; height = "400px";>
+        </div>
+        <div class="column2">
+          <figcaption> <b>Fig 5.4: Outliers in Companies Table, Funding Rounds </b></figcaption>
+          <img src="images/PD5_Outlier4.png" width = "600px"; height = "400px";>
+        </div>
+      </div>
+
+
+      <div width=800px;>
+        <figcaption> <b>Fig 5.5: Outliers in Companies Table, Funding Amount </b></figcaption>
+        <img src="images/PD5_Outlier5.png" width = "600px"; height = "400px"; class = "center";>
+      </div>
+
+    </div>
+
+    <div>
+      <div class= "space"> </div>
+      <h4 class = "heading"> Data Visualization </h4>
+      <h3 class = "subheading"> What Market? </h3>
+        <div width = "800px">
+          <p>
+            To start the analysis, we tried to figure out the market that is most popular. Therefore, we created a subset of all market and 
+          order by descending frequency and took the top 10 rows. From there we created a pie chart to see the most popular market, which 
+          was lead by software, biotechnology and mobile. 
+          </p>
+          <figcaption> <b>Fig 5.6: What Market Segment </b></figcaption>
+          <img src="images/PD5_what.png" width = "500px"; height = "400px"; class = "center">
+        </div>
+
+
+        <div class= "space"> </div>
+        <h3 class = "subheading"> Which Country? </h3>
+        <div class="row">
+        <p>
+          Next analysis is based on which country earned the most funding, surprisingly neither US, Russia, India nor China make the top 10. 
+          Instead small island nations of Bermuda and St.Martin is included. This might happen due to the corporate friendly tax system 
+          of these countries. While other countries hold the highest amount of average finding, the US still have the vast majority funding 
+          earned.
+        </p>
+          <div class="column2">
+            <figcaption> <b>Fig 5.7: Top 10 Average Funding by Country </b></figcaption>
+            <img src="images/PD5_where1.1.png" width = "600px"; height = "450px";>
+          </div>
+          <div class="column2">
+            <figcaption> <b>Fig 5.8: US vs The World </b></figcaption>
+            <img src="images/PD5_where1.2.png" width = "600px"; height = "450px";>
+          </div>
+        </div>
+
+
+
+        <div class= "space"> </div>
+        <h3 class = "subheading"> Average Funding in the US by Sate </h3>
+        <div width = "800px">
+          <p>
+            Now we want to see how the average fundings differ by state, because we know investors has different preference for different business
+            location. So I ran a histogram to see the average funding across the different state. Based on the analyses, we can see Connecticut 
+            has the highest average funding, followed by Nebraska, Massachuset, California, Texas. However, what if a state has a high average 
+            funding, but only one company receives it. We would want to make sure that biases does not happen that bumps up the average. 
+         </p>
+            <figcaption> <b>Fig 5.9: Average Funding by State</b></figcaption>
+            <img src="images/PD5_where2.png" width = "900px"; height = "500px"; class = "center";>
+          </div>
+        </div>
+
+
+
+        <div class= "space"> </div>
+        <h3 class = "subheading"> Which State? </h3>
+        <div class="row">
+          <p>
+            Based on the countings we can see Connecticut and Nebraska has very small frequency, meaning there is a very small chance of 
+            receiving funding. Meanwhile CA has too much funding which means there can be a lot of competition and higher chance of the 
+            company closing. So we eliminated CA just to have a better picture of the rest of the states. Overall, MA
+            and TX are the major states with higher fundings and high possibility of being funded. Therefore, it is up to entrepreneur 
+            to decide between these states. If they want more competition and feel that their company is unique, go for MA or CA, 
+            otherwise, go for TX for less competition.
+          </p>
+          <div class="column2">
+            <figcaption> <b>Fig 5.10: Frequency Funding by State </b></figcaption>
+            <img src="images/PD5_where3.1.png" width = "700px"; height = "400px"; class = "center";>
+          </div>
+          <div class="column2">
+            <figcaption> <b>Fig 5.11: Frequency Funding by State w/o California </b></figcaption>
+            <img src="images/PD5_where3.2.png" width = "700px"; height = "400px"; class = "center";>
+          </div>
+        </div>
+
+        <div class= "space"> </div>
+        <h3 class = "subheading"> Best Time for Funding </h3>
+        <div class="row">
+          <p>
+            We analyzed the timeline of the yearly Average Funding just to predict what could be the estimate amount for next year.
+            It looks like funding trends keeps on rising from 2011, therefore next year could be a good time to get fundings. We also 
+            analyzed the average fundings by month just to know when is the best time to request for funding. And from this chart it 
+            seems that January and November is the best time to request for funding from investors. 
+          </p>
+          <div class="column2">
+            <figcaption> <b>Fig 5.12: Yearly Average Funding  </b></figcaption>
+            <img src="images/PD5_when2.1.png" width = "700px"; height = "400px"; class = "center";>
+          </div>
+          <div class="column2">
+            <figcaption> <b>Fig 5.13: Monthly Average Funding </b></figcaption>
+            <img src="images/PD5_when2.2.png" width = "700px"; height = "400px"; class = "center";>
+          </div>
+        </div>
+
+        <div class= "space"> </div>
+        <h3 class = "subheading"> Funding Methods </h3>
+        <div class="row">
+          <p>
+            Now, to understand how an individual can achieve the startup venture funding, we analyzed the funding round types. 
+            We can infer from the bar charts that most of the companies obtained their funding by "Venture" and "Seed" funding, 
+            but the "Post IPO Debt" raised maximum average funds followed by "Post IPO Equity" and "Grant" funding types. 
+            We can also see that the highest number of investments are done in January, but the average funding amount spikes in 
+            November and May. This is the result of a few outliers in the Funding Amount that we have in the dataset. There are a few 
+            companies that managed to raise huge amount of funding in those months and as a result of this, we can see the spikes.
+          </p>
+          <div class="column2">
+            <figcaption> <b>Fig 5.14: Start Up Frequency and Funding Round Types </b></figcaption>
+            <img src="images/PD5_how1.1.png" width = "700px"; height = "400px"; class = "center";>
+          </div>
+          <div class="column2">
+            <figcaption> <b>Fig 5.15: Start Up Average Funds Raised and Funding Round Types </b></figcaption>
+            <img src="images/PD5_how1.2.png" width = "700px"; height = "400px"; class = "center";>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class= "space"> </div>
+      <h4 class = "heading"> Clustering </h4>
+      <div class="row">
+        <p>
+        Many startups may share some similar characteristics in attributes like marketing, region, and founded years. To detect what 
+        common traits do most startups have, a clustering analysis must be conducted. The results in Fig 1.16 showed that
+        "founded_year" was the only significant attribute in the model. To find out influence of other predictors, "founded_year" was turned 
+        into a categorical variable by cutting it into 7 buckets, each packet with 5 year band. With all variables becoming categorical, 
+        K-modes method was used, which is similar to Kmeans but is used for handling categorical objects. Kmode measure distance by 
+        minimizing the sum of distance from the mode of that cluster not means. To pick the best number of cluster, an elbow chart was drawn 
+        by computing the sum of within-cluster distance. From the elbow chart, we decided to pick 16 as our K-value which is at the "elbow."
+        </p>
+
+        <p>
+          Fig 1.17 shows the K-mode clustering result of the 16 clusters ranked by cluster size. It seems that objects in cluster 1 and 2 are the
+          most extensive with largest cluster sizes. We can infer that software startups founded between 2005-2009 and 2010-2014 in the 
+          Bay Area were the most prevalent . Average distance to evaluate the compactness were checked too. In the last column, the 
+          average distance of each cluster is around either 1 or 2 which means the data points in each cluster only have 1 or 2 predictor
+          values different from cluster centroid. It signifies that objects in each cluster are close to each other. 
+       </p>
+        <div class="column2">
+          <figcaption> <b> Fig 5.16: Clustering K-Modes</b></figcaption>
+          <img src="images/PD5_clusteringKMode.png" width = "700px"; height = "400px"; class = "center";>
+        </div>
+        <div class="column2">
+          <figcaption> <b>Fig 5.17: Clustering Modes </b></figcaption>
+          <img src="images/PD5_Cluster.png" width = "700px"; height = "400px"; class = "center";>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class= "space"> </div>
+      <h4 class = "heading"> Logistic Regression </h4>
+      <p>
+        Logistic regression was used to identify the probability of a company being open and how that changes for every additional 
+        funding round, number of years after their last funding, and number of years after the company was founded for a software 
+        company that was founded in the USA. 
+      </p>
+      <p>
+        Using the companies dataset, all the numerical columns were identified and used for loops to create a column that identifies 
+        US companies and a column that identifies companies that have software in their market name. Next, the levels of the status column 
+        were checked which has 3 levels acquired, closed, and operating. Acquired and operating were combined to be open represented with 
+        a 1 and all the closed companies with a 0. Then, data was partitioned into training data with 60% of the original dataset, and 
+        validation data with 40%. After the first regression, insignificant predictors were removed such as funding total usd and ran 
+        the regression again. A logistical regression and formula was achieved as you can see in the orange box of Fig 1.18.
+      </p>
+      <p>
+        Running the car::vif() function to check for variables with a higher number than 2 were done to check for multicollinearity. 
+        All the variables were below 2 meaning there is no correlation between the variables and we are ready to create a confusion 
+        matrix. A cutoff value of 0.7 was used because it produced the highest accuracy of 92.5% and a Mcnemar's test p-value 
+        of 2*e^-16. This means we were able to predict 92.5% of the validation data correctly with high sensitivity. 
+      </p>
+      <p>
+        The formula generated from the regression shows that a USA founded company in the software industry that has higher funding 
+        rounds, greater number of years after the last funding year, and greater number of years after the founding year will reduce 
+        their probability of staying open due to the high competition and consistent innovation in the USA software industry.
+      </p>
+      <figcaption><b> Fig 5.18: Logistic Regression </b></figcaption>
+      <img src="images/PD5_LogisticRegression.png" width = "1000px"; height = "600px"; class = "center">
+    </div>
+
+    <div>
+      <div class= "space"> </div>
+      <h4 class = "heading"> Classification Tree </h4>
+      <p>
+        If individual's were to raise more than $ 100 million funds, we would need to find out when and through which funding type can they 
+        achieve this. So, aClassification Decision Tree was implememted to predict our set of rules. After studying the data modeling results, 
+        we decided to focus on the startup companies founded in the USA. we worked on the classification with 2 predictors namely, "funding_quarter" 
+        and "funding_type." We filtered the dataset from the investments table for startup companies founded in the USA and convert the funding 
+        amount column to a binary datatype by applying the condition to check if the value is greater than or equal to 100 million. Lastly, 
+        I extract the quarter from the "funded_quarter" attribute and partition the data into 60:40 ratio for the selected attributes.
+        By building the full classification tree, a set of rules was achieved for predicting that individuals can get a funding of less than 
+        $ 100 million, with 98.72% accuracy from the confusion matrix. A set of rules was also earned, like the ones listed below.
+        To conclude, we can infer from the CART modeling that to raise $ 100 million or more for a startup venture fund, individuals have the highest 
+        chance to achieve it in the 2nd quarter and through the Post IPO Equity funding round.
+        
+      </p>
+      <figcaption><b> Fig 5.19: Classification Tree</b></figcaption>
+      <img src="images/PD5_ClassificationTree.png" width = "1000px"; height = "500px"; class = "center">
+    </div>
+
+    <div>
+      <div class= "space"> </div>
+      <h4 class = "heading"> Key Results </h4>
+      <p>
+        From the various analysis, the conclusion shows that there is high competition and innovation in the US software industry. 
+        The USA secures maximum funding compared to all the other international markets combined. Texas and Massachusetts raise high 
+        average amounts of funding while maintaining a high frequency to do so. In the past 10 years, the SF Bay Area software market 
+        is the biggest market which receives highest funding. From the data, the highest number of funding rounds take place in January where as, 
+        the highest average amount of funding is raised in November & May. Also, most companies receive venture and seed funding while 
+        the highest average funding is raised through Post IPO Debt and Equity.
+
+      </p>
+    </div>
+
+    <div>
+      <div class= "space"> </div>
+      <h4 class = "heading"> Future Improvements </h4>
+      <p>
+        For further improvements, here are some possible methods for better recommendation:
+        <ol>
+          <li>Collecting more data on the Founder/CEOs of the startup companies and the various investors. By collecting such data, 
+            we would be able to analyse better and find the best match between startup companies and investors. </li>
+          <li>Data about the Startup Company’s quarterly or yearly revenue could have been useful for getting a better picture of 
+            company’s performance. </li>
+        </ol>
+      </p>
+    </div>
+
+    <div class= "space"> </div>
+      <div>
+          <h4 class = "heading"> Citation / Bibliography </h4>
+        <p>
+          "Resources." Tableau Public, 24 Apr. 2020, public.tableau.com/s/resources?qt-overview_resources=1.     
+        </p>
+    </div>
+  </div>
+    
+</body>

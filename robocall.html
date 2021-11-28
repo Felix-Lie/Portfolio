@@ -1,0 +1,401 @@
+<link rel="stylesheet" href="text.css">
+<link rel="stylesheet" href="topnav.css">
+<link rel="stylesheet" href="tables.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div class="navbar">
+  <a class = home href="home.html"> <i class="fa fa-fw fa-home"></i> Home</a>
+
+  <a href="about.html">  <i class="fa fa-fw fa-user"></i> </i>About</a>
+  
+  <div class="dropdown">
+    <button class="dropbtn">  <i class="fa fa-fw fa-file"> </i> Data Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+      <div class="dropdown-content">
+        <a href="airbnb.html">Airbnb Listings Dashboard</a>
+        <a href="dataWarehourse.html">Data Warehousing</a>
+        <a href="mcDonalds.html">F&B Regression Analysis</a>
+        <a href="robocall.html"> FCC Robocalls Complaints</a>
+        <a href="startUp.html">Start Up Venture Funding</a>
+      </div>
+  </div> 
+
+  <div class="dropdown">
+    <button class="dropbtn">  <i class="fa fa-fw fa-gear"> </i> WebDev Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+      <div class="dropdown-content">
+        <a href="ff.html">Filter Fun</a>
+      </div>
+  </div>   
+  <div class = "navbar-right">
+    <a href="contact.html"> <i class="fa fa-fw fa-envelope"></i> Contact</a>
+  </div>
+</div>
+
+<body>
+  <div class="a">
+    <h2>Project 4 : FCC Robocalls Complaints</h2>
+  </div>
+    
+  <figure class = "imgborder3">
+  <img src="logo/logo_FCClogo.png" width = "300px" height = "300px"; class="center";>
+  </figure>
+
+  <div class= "space"> </div>
+    <h4 class = "heading"> Introduction </h4>
+    <div width=800px;>
+      <p>
+        The Federal Communication Commission (FCC) is an independent government agency of the Unites Stated who regulates interstate and
+        international communications by radio, television, wire, satellite and cable. They are also responsible for enforcing communication
+        law. Individual's complaints on spam callers are filed with the Consumer Help Center since October 2014 until 2018. Everyday, the average spam callers
+        are rising constantly. With individual's constant busy schedules, spam callers can be considered disturbing at some moment. 
+        The aim of this project is to analyze the behavior of spam callers such as who, when, how and frequency of their calls.
+      </p>
+      <p>
+        <b>Software used: SQL Developer, MySQL, Tableau, MS Excel</b>
+      </p>
+    </div>
+
+    <div class= "space"> </div>
+    <div>
+      <h4 class = "heading"> Dataset Explanation & Aim of Analysis</h4>
+      <p> 
+        <strong>Fig 4.1</strong> shows the variables in this dataset. This dataset contains 15 variables and 1.5 million attributes.
+        From all these variable, this project will take a closer look at the <strong> date complaint was made, location of complaint,
+        date/time of the issue, form of issue and Caller ID. </strong> Some of the challenges present on this dataset are: (1) 45% of 
+        the record's attribute contains null, leaving only 55% of the data that can be analyzed. (2) Some entries also shows "none" which 
+        should be taken care off like the null attributes. (3) In addition, data such as day of the week should be relevel initially before 
+        querying. <stong> This analysis will focus on: </stong>
+        <ol>
+          <li> Form </li>
+            <ul>
+              <li> Most Common Form </li>
+            </ul>
+          <li> Frequency </li>
+            <ul>
+              <li> Times of the year </li>
+              <li> Days of the week </li>
+              <li> Times of the day </li>
+            </ul>
+          <li> Location </li>
+            <ul>
+              <li> Nationwide </li>
+              <li> Call to Seattle</li>
+            </ul>
+        </ol>
+      </p>
+    
+    <table>
+      <figcaption> <b>Fig 4.1: Dataset Explanation</b></figcaption>
+      <tr>
+        <th> Variable </th>
+        <th> Data Description </th>
+        <th> Data types</th>
+      </tr>
+      <tr>
+        <td> Ticket_ID </td>
+        <td> Ticket Identifier </td>
+        <td> Integer </td>
+      </tr>
+      <tr>
+        <td> Ticket_Created </td>
+        <td> The date the complaint was submitted </td>
+        <td> Fixed Timestamp</td>
+      </tr>
+      <tr>
+        <td> Date_Created </td>
+        <td> The date the ticket was created </td>
+        <td> Floating Timestamp</td>
+      </tr>
+      <tr>
+        <td> Date_of_Issue </td>
+        <td> The date the consumer states the indicated vilation occured</td>
+        <td> Floating Timestamp </td>
+      </tr>
+      <tr>
+        <td> Time of Issue </td>
+        <td> The time that the consumer indicated the violation occurred </td>
+        <td> Text </td>
+      </tr>
+      <tr>
+        <td> Form </td>
+        <td> Phone, Internet, TV, Radio, Emergency, Accessibility and Request for Dispute Assistance </td>
+        <td> Text </td>
+      </tr>
+      <tr>
+        <td> Method </td>
+        <td> The manner in which a consumer gets the product or service he or she is complaining about </td>
+        <td> Text </td>
+      </tr>
+      <tr>
+        <td> Issue </td>
+        <td> The specific issue the consumer is complaining about </td>
+        <td> Text </td>
+      </tr>
+      <tr>
+        <td> Called_ID_Number </td>
+        <td> The telephone number the consumer indicates appeared on their caller ID </td>
+        <td> Text </td>
+      </tr>
+      <tr>
+        <td> Type_of_Call_or_Message</td>
+        <td> The type of unwanted call or message identified by the consumer </td>
+        <td> Text </td>
+      </tr>
+      <tr>
+        <td> Advertiser_Business_Number </td>
+        <td> The telephone number the consumer indicates the advertiser provided during the call </td>
+        <td> Text </td>
+      </tr>
+      <tr>
+        <td> City </td>
+        <td> The city where the consumer is located </td>
+        <td> Text </td>
+      </tr>
+      <tr>
+        <td> State </td>
+        <td> The state where the consumer is located </td>
+        <td> Text </td>
+      </tr>
+      <tr>
+        <td> Zip</td>
+        <td> The consumer's zip code </td>
+        <td> Text </td>
+      </tr>
+      <tr>
+        <td> Location </td>
+        <td> Center point of zip code </td>
+        <td> Location </td>
+      </tr>
+    </table>
+  </div>
+
+<div class= "space"> </div>
+  <div class = "a">
+    <h4 class = "heading"> Analysis 1: Count by Forms of Complaints </h4>
+    <p>
+      This is the first analysis on the frequency of complaints by their forms. As the use of mobile device increase rapidly everyday, 
+      there is no question that phone complaints dominates the percentage in comparison to internet, TV, radio, etc. As phone cover 72.41%
+      of the complaints, lets take a deeper look into phone complaints.
+    </p>
+  <div>
+    <div class="row">
+      <div class="column2">
+        <table width = "600px"; height = "400px";>
+          <figcaption> <b>Fig 4.2: Count by Forms of Complaints </b></figcaption>
+          <tr>
+            <th colspan = "3"> Count by Forms of Complaints </th>
+          </tr>
+          <tr>
+            <th> Form </th>
+            <th> Count </th>
+            <th> Percentage </th>
+          </tr>
+          <tr>
+            <td> Phone </td>
+            <td> 1,078,852 </td>
+            <td> 72.41% </td>
+          </tr>
+          <tr>
+            <td> Internet </td>
+            <td> 216,743 </td>
+            <td> 14.55% </td>
+          </tr>
+          <tr>
+            <td> TV </td>
+            <td> 156,666 </td>
+            <td> 10.51% </td>
+          </tr>
+          <tr>
+            <td> Radio </td>
+            <td> 31,154 </td>
+            <td> 2.09% </td>
+          </tr>
+          <tr>
+            <td> Emergency </td>
+            <td> 3,033 </td>
+            <td> 0.20% </td>
+          </tr>
+          <tr>
+            <td> Accessibility  </td>
+            <td> 2,905 </td>
+            <td> 0.19% </td>
+          </tr>
+          <tr>
+            <td> Request for Dispute Assistance </td>
+            <td> 655 </td>
+            <td> 0.04% </td>
+          </tr>
+        </table>  
+      </div>
+      <div class="column2">
+        <figcaption> <b>Fig 4.3: Count by Forms of Complaint Pie Chart </b></figcaption>
+        <img src="images/PD4_4.3FormPieChart.png" width = "500px"; height = "400px";>
+      </div>
+    </div>
+    <div class= "space"> </div>
+    <p>
+      Following on from the first analysis, the phone complaints targeted 3 different recipients, which are wireless (like cellphone),
+      wired, or Internet (VOIP). Among these three methods, the three different issues reported are unwanted calls, telemarketing and 
+      robocalls. Based on the query and the histogram, we can conclude that unwanted calls are dominating the issue by more than 50%
+      and done mostly through wireless device and these spam callers are mostly targetting mobile 
+      devices.  
+    </p>
+    <div class="row">
+      <div class="column2">
+        <table width = "600px"; height = "400px";>
+          <figcaption> <b>Fig 4.4: Count by Issue and Method of Receipt </b></figcaption>
+          <tr>
+            <th> Method of Receipt </th>
+            <th> Issue Reported </th>
+            <th> Count </th>
+          </tr>
+          <tr>
+            <td> Wireless (cellphone / other mobile device) </td>
+            <td> Unwanted Calls </td>
+            <td> 331,462 </td>
+          </tr>
+          <tr>
+            <td> Wired </td>
+            <td> Unwanted Calls </td>
+            <td> 133,853 </td>
+          </tr>
+          <tr>
+            <td> Wireless (cellphone / other mobile device) </td>
+            <td> Telemarketing (including do not call and spoofing) </td>
+            <td> 112,573 </td>
+          </tr>
+          <tr>
+            <td> Wired </td>
+            <td> Telemarketing (including do not call and spoofing) </td>
+            <td> 80,021 </td>
+          </tr>
+          <tr>
+            <td> Wireless (cellphone / other mobile device) </td>
+            <td> Robocalls </td>
+            <td> 58,814 </td>
+          </tr>
+          <tr>
+            <td> Internet (VOIP)  </td>
+            <td> Unwanted Calls </td>
+            <td> 40,334 </td>
+          </tr>
+          <tr>
+            <td> Wired </td>
+            <td> Robocalls </td>
+            <td> 35,462 </td>
+          </tr>
+          <tr>
+            <td> Internet (VOIP)  </td>
+            <td> Telemarketing (including do not call and spoofing) </td>
+            <td> 17,157 </td>
+          </tr>
+          <tr>
+            <td> Internet (VOIP)  </td>
+            <td> Robocalls </td>
+            <td> 8,168 </td>
+          </tr>
+        </table>  
+      </div>
+      <div class="column2">
+        <figcaption> <b>Fig 4.5: Count of Issue and Method Histogran</b></figcaption>
+        <img src="images/PD4_4.5_IssueByMethodOfReceipt.png" width = "500px"; height = "400px";>
+      </div>
+  </div>
+
+  <div class= "space"> </div>
+  <div class = "a">
+    <h4 class = "heading"> Analysis 2: Frequency of Calls Againt Time </h4>
+    <p>
+      The second analysis of these spam callers are based on time. The three charts below shows the frequency based on a yearly, hourly,
+      and day of the week manner respectively. As for the yearly chart, we can conclude that frequency increases on average. The hourly 
+      chart tells us that spam callers peaked at 10am and 11am. At 12pm, frequency dropped as usually it is lunch time. Then it increase 
+      again after lunch at 1 pm and gradually decrease towards the end of working hours. Lastly from the third chart shows that Wednesday 
+      and Thursday to be the most busiest day fron unwanted calls. Based of this data, we can conclude that number of spam callers are 
+      rising there are higher probabilities that you get called on Wednesday and Thursday in comparison to the rest of the week, between 
+      10am to 1pm.
+    </p>
+
+    <div class="row">
+      <div class="column3">
+        <figcaption> <b>Fig 4.6: Yearly Frequency </b></figcaption>
+        <img src="images/PD4_4.6countByYear.png" width = "400px"; height = "300px";>
+      </div>
+      <div class="column3">
+        <figcaption> <b>Fig 4.7: Hourly Frquency </b></figcaption>
+        <img src="images/PD4_4.7countByHour.png" width = "400px"; height = "300px";>
+      </div>
+      <div class="column3">
+        <figcaption> <b>Fig 4.8: Daily Frequency </b></figcaption>
+        <img src="images/PD4_4.8countByDay.png" width = "400px"; height = "300px";>
+      </div>
+    </div>
+  </div>
+
+  <div class= "space"> </div>
+    <h4 class = "heading"> Analysis 3: Nationwide Frequency </h4>
+    <div width=800px;>
+      <p>
+        Fig 4.9 shows the heat map of spam callers across United States. As we can see, the frequency of calls happened the most at 
+        California, New York, Texas, Florida, and Washington. Therefore, we will take a closer look at these states on the called ID 
+        and origin.
+      </p>
+      <figcaption> <b>Fig 4.9: Spam Callers Across US </b></figcaption>
+      <img src="images/PD4_4.9SpamCallerMap.png" width = "800px"; height = "500px";>
+    </div>
+
+    <div class= "space"> </div>
+    <div class = "a">
+      <h4 class = "heading"> Analysis 4: Spammer Origin and Caller ID </h4>
+      <p>
+        Figure 4.10 shows the the frequency spam calls targeting Seattle mobile devices while Fig 4.11 shows the caller ID of the spam 
+        callers. Based off the information from these diagrams, we can see that they are synchronized with the fact that Washington has the 
+        highest frequency of spam callers with caller ID 206, followed by California with caller ID 650, 438, 415 and 323.
+      </p>
+       
+      <div class="row">
+        <div class="column2">
+          <figcaption> <b>Fig 4.10: Spam Callers Targeting Seattle Phones </b></figcaption>
+          <img src="images/PD4_4.10Top5SpamCaller.png" width = "600px"; height = "350px";>
+        </div>
+        <div class="column2">
+          <figcaption> <b>Fig 4.11: Caller ID Spamming Seattle Phones </b></figcaption>
+          <img src="images/PD4_4.11caller_ID.png" width = "600px"; height = "350px";>
+        </div>
+      </div>
+    </div>
+
+    <div class= "space"> </div>
+    <div class = "a">
+      <h4 class = "heading"> Conclusion </h4>
+      <p>
+        To sum up this analyses, the main objective of this project is to figure out when to ignore spam caller phones and know their 
+        potential phone number. By understanding them, users can be more familiar with spam callers and can simply prepare counter measures to reject calls.
+        This analyses can also be useful for telemarketers so they know when to call their recipients.
+      </p>
+      <p>
+        To enhance the result of this analyses, some of the possible data that can be used together with this data are having the days of 
+        the week in the dataset so that day of the week can be queried through MySQL. Having more data on people that actually benefit from 
+        telemarketing and telemarketing data from other countries are good sources of identifying spams. In addition, knowing the effectiveness
+        of robocall and telemarketing could really benefit telemarketers.
+      </p>
+      <p>
+        Overall, the analyses in this dataset tells us that spam callers mostly target their recipients on Wednesday and Thurday during 10am-1pm.
+        Washington is one of the top 5 state with spam callers, where the city of Seattle are often targeted by cals and telemarketers from 
+        Washington itself and California with Caller IDs 206, 425, 253, 360, 502 and 202.
+      </p>
+    </div>
+
+  <div class= "space"> </div>
+      <h4 class = "heading"> Citation / Bibliography </h4>
+    <p>"CGB - Consumer Complaints Data." FCC, Federal Communications Commission: Consumer Inquiries and Complaints <br>
+    &emsp; &emsp; &emsp;Division, 7 Mar. 2016, opendata.fcc.gov/Consumer/CGB-Consumer-Complaints-Data/3xyp-aqkj. 
+    </p>
+    <p>
+      "FCC Seals and Logos."" Federal Communications Commission, 14 Oct. 2020, www.fcc.gov/logos. 
+    </p>
+  </div>
+</body

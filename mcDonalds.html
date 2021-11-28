@@ -1,0 +1,460 @@
+<link rel="stylesheet" href="text.css">
+<link rel="stylesheet" href="topnav.css">
+<link rel="stylesheet" href="tables.css">
+<script src="correlMatix.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div class="navbar">
+  <a class = home href="home.html"> <i class="fa fa-fw fa-home"></i> Home</a>
+
+  <a href="about.html">  <i class="fa fa-fw fa-user"></i> </i>About</a>
+  
+  <div class="dropdown">
+    <button class="dropbtn">  <i class="fa fa-fw fa-file"> </i> Data Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+      <div class="dropdown-content">
+        <a href="airbnb.html">Airbnb Listings Dashboard</a>
+        <a href="dataWarehourse.html">Data Warehousing</a>
+        <a href="mcDonalds.html">F&B Regression Analysis</a>
+        <a href="robocall.html"> FCC Robocalls Complaints</a>
+        <a href="startUp.html">Start Up Venture Funding</a>
+      </div>
+  </div> 
+
+  <div class="dropdown">
+    <button class="dropbtn">  <i class="fa fa-fw fa-gear"> </i> WebDev Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+      <div class="dropdown-content">
+        <a href="ff.html">Filter Fun</a>
+      </div>
+  </div>   
+  <div class = "navbar-right">
+    <a href="contact.html"> <i class="fa fa-fw fa-envelope"></i> Contact</a>
+  </div>
+</div>
+
+<body>
+    <div class="a">
+      <h2>Project 3 : Food & Beverage Regression Analysis</h2>
+    </div>
+
+    <h2 class = mcdlogo> McDonald's</h2>
+  <figure class = "imgborder3">
+  <img src="logo/logo_mcdLogo.png" width = "300px" height = "200px"; class="center";>
+  </figure>
+
+  <div class= "space"> </div>
+    <h4 class = "heading"> Introduction </h4>
+    <div width=800px;>
+      <p> 
+        McDonald's had been one of the most popular fastfood restaurant for decades. No matter what they chose to sell in the 
+        menu season wise, majority of the people loves it.  However, there are occasions where individuals are concern about their 
+        dietary elements. Some may think that McDonald's food are too fatty, and others may think the opposite. Therefore, what is 
+        the real answer? The aim of this case study is to help answer individuals' questions with dietary concerns. <b>What are 
+        the main nutritional element that contributes to the total calories of McDonald's overall menu? </b> I will analyze this dataset 
+        step by step to achieve the asnwer to the question above by doing correlation matrix to search for multicollinearity, eliminating 
+        insignificant variables through confidence intervals, p-values, and be sure to have a high R-square.
+      </p>
+      <p>
+        <strong>Multicollinearity</strong> refers to high correlation between 2 or more explanatory variables and it must removed. The reason 
+        is multicollinearity can make a statistically significant variable falsely look insignificant. <strong>Confidence Interval </strong> 
+        should not intersect zeros between the lower and upper bound as it can impact the prediction positively or negatively. Therefore both the 
+        lower and upper bound should either be positive or negative. <strong>R-square</strong> refers to the percentage of the data that can be  
+        explained by the regression model. Having higher R-Squared means having a better model, under the condition that all confidence intervals 
+        (except for the response variable) do not touch zeros and p-values are less that 0.05. 
+      </p>
+      <p>
+        <b>Software used: MS Excel (Correlation matrix, Regression Analysis)</b>
+      </p>
+
+      <div class= "space"> </div>
+      <div>
+      <h4 class = "heading"> Dataset Explanation </h4>
+      <p> 
+        <strong>Fig 3.1</strong> shows the variables in this dataset. This dataset contains 274 attributes, meaning McDonald's has 274 different combinations 
+        of menu, which includes individual meal and combos. In this dataset, I will set the <strong> Calories to be the response variable 
+        </strong>(y-value). <strong> Total Fat, Cholesterol, Sodium, Carbohydrates, Dietary Fiber, Sugars, Protein, Vitamin A, Vitamin C, 
+          Calcium, and Iron will be the explanatory variables </strong>(x-values). The variable <Strong>"item"</Strong> will be excluded from 
+          the analysis as it is not needed.
+      </p>
+  
+      <table>
+        <figcaption> <B>Fig 3.1: Explanation of Datasets</B></figcaption>
+        <tr>
+          <th> Variable</th>
+          <th> Data types</th>
+          <th> Explanation</th>
+        </tr>
+        <tr>
+          <td> Item</td>
+          <td> String</td>
+          <td> Food Name</td>
+        </tr>
+        <tr>
+          <td> Calories</td>
+          <td> Int</td>
+          <td> Energy in Food</td>
+        </tr>
+        <tr>
+          <td> Total Fat</td>
+          <td> int</td>
+          <td> Fat content (g)</td>
+        </tr>
+        <tr>
+          <td> Cholesterol</td>
+          <td> int</td>
+          <td> Cholesterol content (g)</td>
+        </tr>
+        <tr>
+          <td> Sodium</td>
+          <td> int</td>
+          <td> Sodium content (mg)</td>
+        </tr>
+        <tr>
+          <td> Carbohydrates</td>
+          <td> int</td>
+          <td> Carbohydrate content (g)</td>
+        </tr>
+        <tr>
+          <td> Dietary Fiber</td>
+          <td> int</td>
+          <td> Fiber content (g)</td>
+        </tr>
+        <tr>
+          <td> Sugar</td>
+          <td> int</td>
+          <td> Sugar level (g)</td>
+        </tr>
+        <tr>
+          <td> Protein</td>
+          <td> int</td>
+          <td> Protein content (g)</td>
+        </tr>
+        <tr>
+          <td> Vitamin A</td>
+          <td> int</td>
+          <td> % Daily Value</td>
+        </tr>
+        <tr>
+          <td> Vitamin C</td>
+          <td> int</td>
+          <td> % Daily Value</td>
+        </tr>
+        <tr>
+          <td> Calcium</td>
+          <td> int</td>
+          <td> % Daily Value</td>
+        </tr>
+        <tr>
+          <td> Iron</td>
+          <td> int</td>
+          <td> % Daily Value</td>
+        </tr>
+      </table>
+    </div>
+    </div>
+    
+  <div>
+    <div class= "space"> </div>
+    <h4 class = "heading"> Step 1: Initial Regression Model </h4>
+    <p> 
+    As I have decided what is the response variable and what are the explanatory variables in the previous step, 
+    we can move on to creating the regression model. <strong>Fig 3.2</strong> shows the result of the first regression model. It shows 
+    that the model has a high adjusted R-square of 0.99953049, which is very good. However, the variables <strong> Sodium, 
+    Dietary Fiber, Vitamin A and Iron </strong> contains 0 in their confidence interval. This is not allowed in regression. To 
+    solve this, testing the dataset for multicollinearity is mandatory.
+    </p>
+    <figure class = "imgborder3">
+    <figcaption> Fig 3.2: Initial Regression Model </figcaption>
+    <img src="images/PD3_3.2initialRegression.png" width = "800px" height = "600px"; class="center";>
+    </figure>
+  </div>
+    
+    
+  <div>
+    <div class= "space"> </div>
+    <h4 class = "heading"> Step 2: Correlation Matrix Analysis </h4>
+      <p> 
+        <strong>Fig 3.3</strong> shows the correlational matrix between all the variables
+        <input type = "button"
+               id = "button1"
+               value = " Check Response Variable"
+               onclick = "yVarCheck()">. 
+        As we can see <strong>total fat </strong> has the highest correlation with calories with 0.9573, so we will keep this variable. 
+        Meanwhile, sodium, carbohydrates and protein have similar correlation to Calories, but lower than Total Fat, they are indications 
+        of multicollinearity and therefore have to eliminated. All Total Fat variable will be in blue, meaning they can be ignored for the 
+        next correlation analyzation, if any as they are included initially,
+        <input type = "button"
+               disabled
+               id = "button2"
+               value = " Eliminate Variable"
+               onclick = "elVar()">.
+        To redo the simulation of highlighting the table, click this button 
+        <input type = "button" 
+               disabled
+               id = "buttonReset"
+               value = " Reset"
+               onclick = "reset()">.
+        Before excluding anymore variables, let's check the regression model.
+      </p>
+      <table>
+        <figcaption> <b>Fig 3.3: Correlation Analysis</b></figcaption>
+        <tr>
+          <th></th>
+          <th> Calories </th>
+          <th> Total Fat </th>
+          <th> Cholesterol </th>
+          <th> Sodium </th>
+          <th> Carbohydrates </th>
+          <th> Dietary Fiber </th>
+          <th> Sugars </th>
+          <th> Protein </th>
+          <th> Vitamin A (% Daily Value)</th>
+          <th> Vitamin C (% Daily Value)</th>
+          <th> Calcium (% Daily Value)</th>
+          <th> Iron (% Daily Value)</th>
+        </tr>
+        <tr>
+          <td> Calories </td>
+          <td> 1 </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td id = "1.3"> Total Fat </td>
+          <td id = "2.3"> 0.95731458 </td>
+          <td id = "3.3"> 1 </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td id = "1.4"> Cholesterol </td>
+          <td id = "2.4"> 0.491417685 </td>
+          <td id = "3.4"> 0.53153861 </td>
+          <td id = "4.4"> 1 </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td id = "1.5"> Sodium </td>
+          <td id = "2.5"> 0.919496642 </td>
+          <td id = "3.5"> 0.879702796 </td>
+          <td id = "4.5"> 0.457165246 </td>
+          <td id = "5.5"> 1 </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td id = "1.6"> Carbohydrates </td>
+          <td id = "2.6"> 0.845551234 </td>
+          <td id = "3.6"> 0.685331511 </td>
+          <td id = "4.6"> 0.355442885 </td>
+          <td id = "5.6"> 0.748718398 </td>
+          <td id = "6.6"> 1</td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td id = "1.7"> Dietary Fiber </td>
+          <td id = "2.7"> 0.630446107 </td>
+          <td id = "3.7"> 0.499323175 </td>
+          <td id = "4.7"> 0.328185164 </td>
+          <td id = "5.7"> 0.514146946 </td>
+          <td id = "6.7"> 0.758736168 </td>
+          <td id = "7.7"> 1</td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td id = "1.8"> Sugars </td>
+          <td id = "2.8"> 0.137296154 </td>
+          <td id = "3.8"> -0.071381538 </td>
+          <td id = "4.8"> -0.054685524 </td>
+          <td id = "5.8"> -0.002060997 </td>
+          <td id = "6.8"> 0.515209686 </td>
+          <td id = "7.8"> 0.390915392 </td>
+          <td id = "8.8"> 1 </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td id = "1.9"> Protein </td>
+          <td id = "2.9"> 0.823987595 </td>
+          <td id = "3.9"> 0.75624674 </td>
+          <td id = "4.9"> 0.343158777 </td>
+          <td id = "5.9"> 0.81207102 </td>
+          <td id = "6.9"> 0.571675934 </td>
+          <td id = "7.9"> 0.453217355 </td>
+          <td id = "8.9"> 0.008002494 </td>
+          <td id = "9.9"> 1 </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td id = "1.10"> Vitamin A(% Daily Value) </td>
+          <td id = "2.10"> -0.082138918 </td>
+          <td id = "3.10"> -0.114188609 </td>
+          <td id = "4.10"> 0.016342969 </td>
+          <td id = "5.10"> -0.038187076 </td>
+          <td id = "6.10"> -0.064017352 </td>
+          <td id = "7.10"> 0.133276826 </td>
+          <td id = "8.10"> -0.004906907 </td>
+          <td id = "9.10"> 0.040244066</td>
+          <td id = "10.10"> 1</td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td id = "1.11"> Vitamin C(% Daily Value) </td>
+          <td id = "2.11"> -0.093625323 </td>
+          <td id = "3.11"> -0.198408717 </td>
+          <td id = "4.11"> -0.16149528 </td>
+          <td id = "5.11"> -0.208173369 </td>
+          <td id = "6.11"> 0.080947108 </td>
+          <td id = "7.11"> 0.283904423 </td>
+          <td id = "8.11"> 0.457589551 </td>
+          <td id = "9.11"> -0.049576659 </td>
+          <td id = "10.11"> 0.136052406 </td>
+          <td id = "11.11"> 1 </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td id = "1.12"> Calcium (% Daily Value) </td>
+          <td id = "2.12"> 0.226497444 </td>
+          <td id = "3.12"> 0.126588537 </td>
+          <td id = "4.12"> 0.306775606 </td>
+          <td id = "5.12"> 0.252161379 </td>
+          <td id = "6.12"> 0.218704986 </td>
+          <td id = "7.12"> 0.365529298 </td>
+          <td id = "8.12"> 0.218379571 </td>
+          <td id = "9.12"> 0.415000718 </td>
+          <td id = "10.12"> 0.082149249 </td>
+          <td id = "11.12"> -0.061502936 </td>
+          <td id = "12.12"> 1</td>
+          <td > </td>
+        </tr>
+        <tr>
+          <td id = "1.13"> Iron (% Daily Value) </td>
+          <td id = "2.13"> 0.634199658 </td>
+          <td id = "3.13"> 0.531549195 </td>
+          <td id = "4.13"> 0.571864348 </td>
+          <td id = "5.13"> 0.57962816 </td>
+          <td id = "6.13"> 0.617679213 </td>
+          <td id = "7.13"> 0.48789573 </td>
+          <td id = "8.13"> 0.258123993</td>
+          <td id = "9.13">  0.602930993</td>
+          <td id = "10.13"> 0.034803916</td>
+          <td id = "11.13"> -0.113620603</td>
+          <td id = "12.13"> 0.539285049</td>
+          <td id = "13.13"> 1 </td>
+        </tr>
+      </table>
+    </div>
+  
+  
+
+ 
+
+<div>
+  <div class= "space"> </div>
+  <h4 class = "heading"> Step 3: Rerun Regression Model </h4>
+  <p> 
+    <strong>Fig 3.4</strong> shows us the second regression analysis after few of the variables had been eliminated. Now,
+    the model have a stronger adjusted R-square value, which is good. However, the variable <strong>Vitamin A contain zero in it's 
+    confidence interval </strong>. Therefore, it is necessary to eliminate this variable from the regression model.
+  </p>
+  <figure class = "imgborder3">
+  <figcaption> Fig 3.4: Second Regression Model </figcaption>
+  <img src="images/PD3_3.4Regression2.png" width = "800px" height = "600px"; class="center";>
+  </figure>
+</div>
+
+
+<div>
+  <div class= "space"> </div>
+  <h4 class = "heading"> Step 4: Final Regression Model </h4>
+  <p> 
+    <strong>Fig 3.5</strong> shows us the <strong>final regession model</strong>. The model has a high adjusted R-square value of 0.9774, meaning 
+    that 97.74% of the data sets can be explained by the regression model. All the p-values of the explanatory variables are less than 
+    0.05 and the confidence intervals of the explanatory variables does not intersect at zero. This proves that the model below shows 
+    an accurate regression equation to determine the calories of McDonals menu using their nutritional elements.
+  </p>
+  <figure class = "imgborder3">
+  <figcaption> Fig 3.5: Second Regression Model </figcaption>
+  <img src="images/PD3_3.5finalRegression.png" width = "800px" height = "600px"; class="center";>
+  </figure>
+</div>
+
+<div class= "space"> </div>
+    <h4 class = "heading"> Colclusion </h4>
+    <div width=800px;>
+      <p> 
+        Overall, we can depict from the regression model that: <br>
+        <strong>Calories = 8.853 + 13.678 * (Total Fat) - 0.134 * (Cholesterol) + 12.063 * (Dietary Fiber) + 3.275 * (sugars) + 0.272 * (Vitamin A)
+          + 0.9476 * (Calcium) + 4.4957 * (Iron)</strong>
+      </p>
+      <p>
+        This equation can be helpful for many individuals who are creating a diet plan, currently under weight loss or gain programs, or 
+        even for personal concoiusness. If you want to gain weight, you might want to choose menus with high calories or dietary fiber, or even both.
+        If you want to lose weight, but cannot hold your cravings for McDonals, you can choose menus with less Fat and fiber, and with more 
+        Vitamin C, calcium or sugar. With this model, you can create any plans for your diets and health while considering the nutritional
+        element intake.
+      </p>
+    <div>
+
+      <div class= "space"> </div>
+    <div>
+      <h4 class = "heading"> Citation / Bibliography </h4>
+      <p>McDonald's. "Nutrition Facts for McDonald's Menu." Kaggle, 3 Mar. 2017, www.kaggle.com/mcdonalds/nutrition-facts. 
+      </p>
+    </div>
+</body>

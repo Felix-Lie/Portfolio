@@ -1,0 +1,103 @@
+<link rel="stylesheet" href="text.css">
+<link rel="stylesheet" href="topnav.css">
+<link rel="stylesheet" href="tables.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div class="navbar">
+  <a class = home href="home.html"> <i class="fa fa-fw fa-home"></i> Home</a>
+
+  <a href="about.html">  <i class="fa fa-fw fa-user"></i> </i>About</a>
+  
+  <div class="dropdown">
+    <button class="dropbtn">  <i class="fa fa-fw fa-file"> </i> Data Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+      <div class="dropdown-content">
+        <a href="airbnb.html">Airbnb Listings Dashboard</a>
+        <a href="dataWarehourse.html">Data Warehousing</a>
+        <a href="mcDonalds.html">F&B Regression Analysis</a>
+        <a href="robocall.html"> FCC Robocalls Complaints</a>
+        <a href="startUp.html">Start Up Venture Funding</a>
+      </div>
+  </div> 
+
+  <div class="dropdown">
+    <button class="dropbtn">  <i class="fa fa-fw fa-gear"> </i> WebDev Projects 
+      <i class="fa fa-caret-down"></i>
+    </button>
+      <div class="dropdown-content">
+        <a href="ff.html">Filter Fun</a>
+      </div>
+  </div>   
+  <div class = "navbar-right">
+    <a href="contact.html"> <i class="fa fa-fw fa-envelope"></i> Contact</a>
+  </div>
+</div>
+
+<body>
+  <div class="a">
+    <h2>Project 1 : Airbnb Listing Dashboard</h2>
+  </div>
+    
+  <figure class = "imgborder3">
+    <img src="logo/logo_airbnblogo.png" width = "300px" height = "200px"; class="center";>
+  </figure>
+
+  <div class= "space"> </div>
+  <h4 class = "heading"> Introduction </h4>
+  <div width = 800px;>
+    <p> 
+        When COVID-19 strikes in the early 2020, the world's economy stumbles. Few businesses got stronger such as tech companies, but the 
+        rest struggled, while few came to an end. Airbnb is one of the business that still survives after the pandemic. They even managed to start
+        trading their stocks on Nasdaq since December 2020. One of the key driver of Airbnb's success is that they act as a substitute service
+        to hotels and accomodations at a cheaper price, connecting lender to renter in the market through their c2c business model as well as complemented
+        by exceptional customer service. 
+    </p>
+
+    <p>
+    <strong> Software used: Tableau </strong> <br>
+    To view the dashboard directly, <a href="https://public.tableau.com/views/WestSeattleAirbnb_16033177560840/WestSeattleAirbnbDashboard?:
+    language=en&:display_count=y&:origin=viz_share_link" target="_blank" > click here.</a>
+    </p>
+
+    <h4 class = "heading"> Dataset </h4>
+    <p>
+      In this project, I used an Airbnb dataset which contains Airbnb listings prices and details. The dataset contains a lot of discrete and continuous
+      variables such as First review, Last review, Host ID, Host Name, is Host Superhost, longitude, latitude, Listing URL, Name, neighbourhood
+      details, price, summary, room type, zip code, accomodates how many people, number of bedrooms, number of bathrooms, number of reviews,
+      review score, rating, etc.
+    </p>
+
+    <h4 class = "heading"> Objective </h4>
+    
+    <p> 
+      The aim of this project is to give insights to individuals in the West Seattle area who are trying to decide if they should rent
+       a spare bedroom in their house on Airbnb or not. Some of the important information displayed on this dashboard are: <br>
+      <ol>
+        <li> Is there a lot of comparable competitors? </li>
+        <li> What are the similar listings charging per night? </li>
+        <li> How popular are similar listings and recent listings? </li>
+      </ol> 
+    </p>
+
+    <p>
+      <strong> Some of the specifications made on this Airbnb Dashboard are: </strong>
+      <ol>
+        <li> Compare listings that are similar to the specs of the objective (West Seattle area and spare bedroom). </li>
+        <li> Contains one map, one crosstab, and one highlighted table. </li>
+        <li> The use of tooltip (can be checked by opening the dashboard on the web directly, link on the Introduction section). </li>
+        <li> Use Filter </li>
+      </ol> 
+    </p>
+
+    <div class= "space"> </div>
+
+    <p>
+    <figcaption> Fig 1.1: Airbnb Dashboard </figcaption>
+    <img src = "images/PD1_Airbnb_Dashboard.png" width="1100" height="900" class="center">
+    </p>
+  </div>
+    
+    
+</body

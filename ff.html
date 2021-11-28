@@ -1,0 +1,78 @@
+<html>
+<script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js">
+</script>
+
+<link rel="stylesheet" href = "ff.css">
+<link rel="stylesheet" href= "topnav.css">
+<script src = "ff.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="navbar">
+       <a class = home href="home.html"> <i class="fa fa-fw fa-home"></i> Home</a>
+     
+       <a href="about.html">  <i class="fa fa-fw fa-user"></i> </i>About</a>
+       
+       <div class="dropdown">
+         <button class="dropbtn">  <i class="fa fa-fw fa-file"> </i> Data Projects 
+           <i class="fa fa-caret-down"></i>
+         </button>
+           <div class="dropdown-content">
+             <a href="airbnb.html">Airbnb Listings Dashboard</a>
+             <a href="dataWarehourse.html">Data Warehousing</a>
+             <a href="mcDonalds.html">F&B Regression Analysis</a>
+             <a href="robocall.html"> FCC Robocalls Complaints</a>
+             <a href="startUp.html">Start Up Venture Funding</a>
+           </div>
+       </div> 
+     
+       <div class="dropdown">
+         <button class="dropbtn">  <i class="fa fa-fw fa-gear"> </i> WebDev Projects 
+           <i class="fa fa-caret-down"></i>
+         </button>
+           <div class="dropdown-content">
+             <a href="ff.html">Filter Fun</a>
+           </div>
+       </div>   
+       <div class = "navbar-right">
+         <a href="contact.html"> <i class="fa fa-fw fa-envelope"></i> Contact</a>
+       </div>
+</div>
+     
+
+<h1> Filter Fun Mini Project</h1>
+
+<canvas id = "can">
+</canvas>
+
+<h2> Load Image </h2>
+
+<input type = "file"
+       multiple = "false"
+       accept = "image/*"
+       id = "photofile"
+       onchange = "loadImage()">
+
+<h2> Choose Filter </h2>
+<h5> *NOTE*: Filter time may depend on size of the image </h5>
+
+<input type = "button"
+       value = "Make Grayscale"
+       onclick = "makeGray()">
+
+<input type = "button"
+       value = "Red"
+       onclick = "red()">
+
+<input type = "button"
+       value = "Make Rainbow"
+       onclick = "rainbow()">
+
+<p>
+<input type = "button"
+       value = "Reset Image"
+       onclick = "resetImage()">
+<input type = "button"
+       value = "Clear Canvas"
+       onclick = "clearCanvas()">
+</p>
+</html>
