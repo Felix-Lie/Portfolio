@@ -1,26 +1,24 @@
-tr{
-    vertical-align: middle;
-    text-align: center;
-  }
-  
-  table, th, td{
-    margin-left: auto;
-    margin-right: auto;  
-    border: 1px solid black;
-    padding : 5px;
-    border-collapse: collapse;
-    background-color: white;
-    font-size: 15px;
-    color: black;
-  }
-  .blueback{
-    background-color :  rgb(53, 141, 199);
-  }
-  
-  .redback{
-    background-color :  red;
-  }
+tr {
+  vertical-align: middle;
+  text-align: center;
+}
 
-  .transparent{
-    background-color: transparent;
-  }
+table,
+th,
+td {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  padding: 5px;
+  border-collapse: collapse;
+  background-color: white;
+  font-size: 15px;
+  color: black;
+}
+.blueback {
+  background-color: rgb(53, 141, 199);
+}
+
+.redback {
+  background-color: red;
+}
